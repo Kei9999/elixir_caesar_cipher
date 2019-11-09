@@ -38,22 +38,20 @@ defmodule ElixirCaesarCipher do
 
     target = target |> String.codepoints()
 
-    cond do
-      is_english?(target) ->
-        target
-        |> Enum.map(
-          fn(target_letter) ->
-            <<aacute::utf8>> = target_letter
-            new_letter = <<aacute + number ::utf8>>
-            case is_english_letter?(new_letter) do
-              true -> new_letter
-              false -> <<aacute + number - 26 ::utf8>>
-            end
-          end)
-        |> List.to_string()
-      true ->
-        invalid_input_phrase()
-    end
+    target  |> Enum.map(
+               fn(target_letter) ->
+                 case is_english_letter?(target_letter) do
+                   true ->
+                    <<aacute::utf8>> = target_letter
+                    new_letter = <<aacute + number ::utf8>>
+                    case is_english_letter?(new_letter) do
+                      true -> new_letter
+                      false -> <<aacute + number - 26 ::utf8>>
+                    end
+                   false -> target_letter
+                 end
+                end)
+            |> List.to_string()
   end
 
 
