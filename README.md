@@ -5,26 +5,18 @@
 負の数を指定することで逆方向にもずらすことができます。
 英語以外の文字列の入力は無視するようになってます。
 
-Example
+# Get started
+
+Elixir 1.4系での動作を確認しています。
+以下の公式ページを参考にElixirをinstallしてください。
+
+[Elixir をインストール](https://elixir-lang.jp/install.html)
+
+# Example
 ```
 $./elixir_caesar_cipher "az" --number 5
 fe
+$./elixir_caesar_cipher "az{}az" --number 5
+fe{}fe
 ```
-
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `elixir_caesar_cipher` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:elixir_caesar_cipher, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/elixir_caesar_cipher](https://hexdocs.pm/elixir_caesar_cipher).
 
